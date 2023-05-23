@@ -68,7 +68,7 @@ def submit_text():
         text = text[0:20]
     fileName = f"{text}.mp3"
     tts.save(fileName)
-    os.system(f"mpg321 {fileName}")
+    os.system(fileName)
     playsound.playsound(fileName, True)
 
 
