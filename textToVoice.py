@@ -2,7 +2,7 @@ from PyQt6.QtWidgets import *
 import sys
 import os
 import gtts
-import playsound
+import pygame
 
 defultLanguage = "bn"
 
@@ -68,9 +68,9 @@ def submit_text():
         text = text[0:20]
     fileName = f"{text}.mp3"
     tts.save(fileName)
-    os.system(fileName)
-    playsound.playsound(fileName, True)
-
+    pygame.mixer.init()
+    pygame.mixer.music.load(fileName)
+    pygame.mixer.music.play()
 
 def handle_dropdown_selection(index):
     global defultLanguage
