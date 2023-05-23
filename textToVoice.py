@@ -26,33 +26,44 @@ dictionaryForGetShortFrom = {
     "Turkish": "tr",
     "Vietnamese": "vi",
     "Polish": "pl",
+    "Urdu": "ur",
+    "Ukrainian": "uk",
+    "Kannada": "kn",
+    "Greek": "el",
+    "Afrikaans": "af",
 }
 
 ShowLangaugeName = [
     "Bengali",
+    "Afrikaans" "Arabic",
+    "Chinese",
+    "Dutch",
     "English",
-    "Spanish",
     "French",
     "German",
-    "Italian",
-    "Portuguese",
-    "Russian",
-    "Chinese",
-    "Japanese",
-    "Korean",
-    "Arabic",
-    "Hindi",
-    "Dutch",
     "Greek",
-    "Swedish",
-    "Turkish",
-    "Vietnamese",
+    "Hindi",
+    "Italian",
+    "Japanese",
+    "Kannada",
+    "Korean",
+    "Portuguese",
     "Polish",
+    "Russian",
+    "Swedish",
+    "Spanish",
+    "Turkish",
+    "Urdu",
+    "Ukrainian",
+    "Vietnamese",
 ]
 
+
 def submit_text():
+    global defultLanguage
+    print(defultLanguage)
     text = text_field.toPlainText()
-    tts = gtts.gTTS(text=text, lang= defultLanguage)
+    tts = gtts.gTTS(text=text, lang=defultLanguage)
     if len(text) > 20:
         text = text[0:20]
     fileName = f"{text}.mp3"
@@ -62,9 +73,9 @@ def submit_text():
 
 
 def handle_dropdown_selection(index):
+    global defultLanguage
     selected_option = combo_box.itemText(index)
     defultLanguage = dictionaryForGetShortFrom[selected_option]
-    print(defultLanguage)
 
 
 app = QApplication(sys.argv)
@@ -83,7 +94,7 @@ layout.addWidget(combo_box)
 layout.addWidget(submit_button)
 
 window.setLayout(layout)
-window.setWindowTitle("Awesome Interface")
+window.setWindowTitle("Text to Voice")
 window.show()
 
 sys.exit(app.exec())
