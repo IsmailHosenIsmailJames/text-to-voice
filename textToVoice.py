@@ -52,7 +52,7 @@ ShowLangaugeName = [
 
 def submit_text():
     text = text_field.toPlainText()
-    tts = gtts.gTTS(text=text, lang="bn")
+    tts = gtts.gTTS(text=text, lang= defultLanguage)
     if len(text) > 20:
         text = text[0:20]
     fileName = f"{text}.mp3"
