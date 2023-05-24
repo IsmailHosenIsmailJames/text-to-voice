@@ -6,5 +6,5 @@ to use this python code we need to install some library.
 ##### $ pip install PyQt6
 ### 2. install gTTS
 ##### $ pip install gTTS
-### 3. install playsound
-##### $ pip install playsound
+### 3. install pygame
+##### $ pip install pygame
