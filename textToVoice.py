@@ -63,6 +63,11 @@ def submit_text():
     global defultLanguage
     print(defultLanguage)
     text = text_field.toPlainText()
+    
+    if len(text) == 0:
+        print("You have enter nothing")
+        return
+    
     tts = gtts.gTTS(text=text, lang=defultLanguage)
     if len(text) > 20:
         text = text[0:20]
